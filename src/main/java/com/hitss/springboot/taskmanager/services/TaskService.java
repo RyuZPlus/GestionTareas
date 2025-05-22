@@ -52,11 +52,11 @@ public class TaskService {
 	            .orElseThrow(() -> new IllegalArgumentException("Tarea no encontrada con ID: " + id));
 	    taskRepository.delete(task);
 	}
-	public void markAsCompleted(Integer id) {
+	public Task markAsCompleted(Integer id) {
 	    Task task = taskRepository.findById(id)
 	            .orElseThrow(() -> new IllegalArgumentException("Tarea no encontrada con ID: " + id));
 	    task.setCompleted(true);
 	    task.setUpdatedAt(java.time.LocalDateTime.now());
-	    taskRepository.save(task);
+	    return taskRepository.save(task);
 	}
 }

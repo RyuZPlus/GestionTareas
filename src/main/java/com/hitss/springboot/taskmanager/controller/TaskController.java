@@ -38,8 +38,8 @@ public class TaskController {
 	}
 	
 	@PutMapping("/tasks/{id}/complete")
-	public void markTaskAsCompleted(@PathVariable Integer id) {
-	    taskService.markAsCompleted(id);
+	public Task markTaskAsCompleted(@PathVariable Integer id) {
+	    return taskService.markAsCompleted(id);
 	}
 	
 	@GetMapping("/tasks/{id}")
